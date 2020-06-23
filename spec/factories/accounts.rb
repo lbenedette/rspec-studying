@@ -19,7 +19,7 @@ FactoryBot.define do
 
         trait :beginner do
             level { "beginner" }
-        end
+        end 
 
         factory :account_vip_beginner, traits: ['vip', 'beginner']
 
