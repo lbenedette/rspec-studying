@@ -2,6 +2,7 @@ FactoryBot.define do
     factory :account do
         transient do 
             upcased { false }
+            quantity_orders { 3 }
         end
 
         name { Faker::Name.name }
@@ -25,6 +26,12 @@ FactoryBot.define do
 
         trait :expert do
             level { "expert" }
+        end
+
+        trait :with_orders do
+            after(:create) do |account, evaluator|
+                create_list(:order, evaluator.quantity_orders, account: account)
+            end
         end
 
         after(:create) do |account, evaluator|

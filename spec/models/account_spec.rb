@@ -67,4 +67,16 @@ RSpec.describe Account, type: :model do
       expect(account.level).to eq("expert")
     end
   end
+
+  context 'FactoryBot has_many relationship' do
+    it 'account without orders' do
+      account = create(:account)
+      expect(account.orders.count).to eq(0)
+    end
+
+    it 'trait with_orders' do
+      account = create(:account, :with_orders)
+      expect(account.orders.count).to eq(3)
+    end
+  end
 end
