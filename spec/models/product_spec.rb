@@ -6,22 +6,24 @@ RSpec.describe Product, type: :model do
     expect(product).to be_valid
   end
 
-  it 'is invalid without description' do
-    product = build(:product, description: nil)
-    expect(product).to be_invalid
-    expect(product.errors).to include(:description)
-  end
-
-  it 'is invalid without price' do
-    product = build(:product, price: nil)
-    expect(product).to be_invalid
-    expect(product.errors).to include(:price)
-  end
-
-  it 'is invalid without category' do
-    product = build(:product, category: nil)
-    expect(product).to be_invalid
-    expect(product.errors).to include(:category)
+  context 'validates' do
+    it 'is invalid without description' do
+      product = build(:product, description: nil)
+      expect(product).to be_invalid
+      expect(product.errors).to include(:description)
+    end
+  
+    it 'is invalid without price' do
+      product = build(:product, price: nil)
+      expect(product).to be_invalid
+      expect(product.errors).to include(:price)
+    end
+  
+    it 'is invalid without category' do
+      product = build(:product, category: nil)
+      expect(product).to be_invalid
+      expect(product.errors).to include(:category)
+    end
   end
 
   context '#formatted_price' do
