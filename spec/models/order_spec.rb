@@ -6,14 +6,14 @@ RSpec.describe Order, type: :model do
       first_order = create(:order)
       second_order = create(:order)
       
-      expect(first_order.description).to eq("Order #1")
-      expect(second_order.description).to eq("Order #2")
+      order_number = first_order.description[/(\d+)/].to_i
+
+      expect(second_order.description).to eq("Order ##{order_number + 1}")
     end
 
     it '#account' do
       order = create(:order)
       
-      # order.description = "Order #3" because of sequence
       expect(order.account).to be_kind_of(Account)
       expect(order.account.vip).to eq(false)
     end

@@ -10,6 +10,7 @@ FactoryBot.define do
         # sequence(:email) { |n| "email_#{n}@example.com"}
         vip { false }
         days_to_pay { 15 }
+        country { Faker::Address.country_code }
 
         trait :vip do
             vip { true }

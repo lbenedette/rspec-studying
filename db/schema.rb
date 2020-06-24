@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2020_06_23_201341) do
     t.boolean "vip"
     t.integer "days_to_pay"
     t.string "level"
+    t.string "country"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

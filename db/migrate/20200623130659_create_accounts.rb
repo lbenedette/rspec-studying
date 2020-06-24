@@ -6,6 +6,7 @@ class CreateAccounts < ActiveRecord::Migration[6.0]
       t.boolean :vip
       t.integer :days_to_pay
       t.string :level # ["beginner", "medium", "expert"]
+      t.string :country
 
       t.timestamps
     end
