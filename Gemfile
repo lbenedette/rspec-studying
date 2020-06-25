@@ -38,6 +38,9 @@ group :development, :test do
 
   # Mock http requests
   gem 'webmock'
+
+  # Matches to test json response
+  gem 'rspec-json_expectations'
 end
 
 group :development do
