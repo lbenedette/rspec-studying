@@ -1,4 +1,5 @@
 class AccountsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
   before_action :set_account, only: [:show, :update, :destroy]
 
   # GET /accounts
@@ -46,6 +47,6 @@ class AccountsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def account_params
-      params.require(:account).permit(:name, :email)
+      params.require(:account).permit(:name, :email, :vip, :days_to_pay, :country)
     end
 end
